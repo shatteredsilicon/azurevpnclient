@@ -1,0 +1,5 @@
+Build with:
+
+fakeroot rpmbuild --define "_topdir $(pwd)" -bb SPECS/microsoft-azurevpnclient-3.0.0-3.spec
+
+Package will be in the RPMS directory
