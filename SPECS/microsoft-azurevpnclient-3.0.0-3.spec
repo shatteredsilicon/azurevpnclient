@@ -63,6 +63,8 @@ mv -T "%{_verdir}/files" "%{buildroot}"
 %post
 # Allow non-root users to create network interface
 /sbin/setcap cap_net_admin=+pe "/opt/microsoft/microsoft-azurevpnclient/microsoft-azurevpnclient"
+# Specific root cert needed by Azure. Unfortunately Redhat stores it's certs in a different place to usual
+/bin/ln -s /etc/pki/ca-trust/extracted/pem/directory-hash/DigiCert_Global_Root_G2.pem /etc/ssl/certs/DigiCert_Global_Root_G2.pem
 
 %clean
 rm -rf "%{_builddir}/%{_verdir}"
